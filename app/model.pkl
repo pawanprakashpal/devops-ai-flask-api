@@ -1,0 +1,9 @@
+# Save this as a one-time Python script to create your model.pkl
+import pickle
+from sklearn.dummy import DummyClassifier
+
+model = DummyClassifier(strategy='most_frequent')
+model.fit([[0, 0]], [1])  # Just to initialize
+
+with open('model.pkl', 'wb') as f:
+    pickle.dump(model, f)

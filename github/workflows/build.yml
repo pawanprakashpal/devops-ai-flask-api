@@ -1,0 +1,16 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Docker Build
+        run: docker build -t devops-ai-api:latest .
+      - name: Helm Deploy
+        run: helm upgrade --install devops-api ./helm/devops-api -f ./helm/devops-api/values.yaml
