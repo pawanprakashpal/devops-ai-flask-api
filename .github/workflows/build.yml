@@ -11,6 +11,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Docker Build
-        run: docker build -t devops-ai-api:latest .
+        run: docker build -t devops-ai-api:latest -f ./docker/Dockerfile .
       - name: Helm Deploy
         run: helm upgrade --install devops-api ./helm/devops-api -f ./helm/devops-api/values.yaml
