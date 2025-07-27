@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import pickle
 import os
-
+load_dotenv()
 app = Flask(__name__)
 
 # Load model (dummy model for now)
